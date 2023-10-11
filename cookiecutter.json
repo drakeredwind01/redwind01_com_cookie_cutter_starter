@@ -1,0 +1,43 @@
+{
+  "$schema": "https://cookiecutter.readthedocs.io/en/latest/config.json",
+  "version": 1,
+
+  "name": "redwind01_com_cookie_cutter_starter",
+  "description": "Behold My Awesome Project!",
+  "author": "drake redwind",
+
+  "directory": "/",
+  "overwrite_if_exists": true,
+  "skip_if_file_exists": false,
+
+  "project_name": "redwind01_com_cookie_cutter_starter",
+  "description": "Behold My Awesome Project!",
+  "author": "drake redwind",
+
+  "project_slug": "redwind01_com_cookie_cutter_starter",
+  "repo_name": "redwind01_com_cookie_cutter_starter",
+
+  "open_in_editor": false,
+  "extra_context": {
+    "python_version": "3.10",
+    "username_type": "username",
+    "timezone": "UTC",
+    "windows": true,
+    "editor": "PyCharm",
+    "use_docker": true,
+    "postgresql_version": "15",
+    "cloud_provider": "None",
+    "mail_service": "Mailgun",
+    "use_async": true,
+    "use_drf": true,
+    "frontend_pipeline": "None",
+    "use_celery": true,
+    "use_mailpit": false,
+    "use_sentry": true,
+    "use_whitenoise": true,
+    "use_heroku": false,
+    "ci_tool": "Github",
+    "keep_local_envs_in_vcs": false,
+    "debug": true
+  }
+}
