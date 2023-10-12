@@ -20,7 +20,9 @@ docker-compose -f local.yml up
 docker-compose -f production.yml build
 docker-compose -f production.yml up
 
-
+git status
+git pull origin full_backup
+git log
 
 when committing add .txt to this file
 
@@ -386,7 +388,10 @@ def Authentication():
             and                 'APP_DIRS': True,
 
 
-
+D:\documents\GitHub\redwind01_com_cookie_cutter_starter\.gitignore
+#.env
+#.envs/*
+.envs/.production
 
 
 

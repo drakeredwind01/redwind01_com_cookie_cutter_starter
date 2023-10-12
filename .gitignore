@@ -330,5 +330,6 @@ redwind01_com_cookie_cutter_starter/media/
 
 .pytest_cache/
 .ipython/
-.env
-.envs/*
+#.env
+#.envs/*
+.envs/.production

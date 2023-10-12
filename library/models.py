@@ -12,6 +12,6 @@ class Books(models.Model):
 # PositiveSmallIntegerField = 0 to 32767
 # PositiveIntegerField      = 0 to 2147483647
 # PositiveBigIntegerField   = 0 to 9223372036854775807
-# ISBN                      =      1097814218062420
+# ISBN                      =      9781421806242
 
 
