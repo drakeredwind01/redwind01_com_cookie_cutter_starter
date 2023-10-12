@@ -4,14 +4,25 @@ import random
 
 docker compose -f local.yml run --rm django python manage.py makemigrations
 docker compose -f local.yml run --rm django python manage.py migrate
+docker compose -f local.yml run --rm django python manage.py createsuperuser
 docker compose -f local.yml run --rm django python manage.py startapp
+docker compose -f local.yml run --rm django python manage.py build          # create new image that docker uses when you run it with docker up
 
 docker-compose -f local.yml run -p 8000:8000 --rm django /bin/bash          # make a bash terminal on linux within docker
+    # can be used to explore the docker image
 docker-compose -f local.yml run --rm django /bin/bash       # make a bash terminal on linux within docker
 python manage.py                                            # ctrl+d to exit docker compose /bin/bash
 python manage.py runserver
 docker-compose -f local.yml up
 # python manage.py startapp     not working
+
+# for production
+docker-compose -f production.yml build
+docker-compose -f production.yml up
+
+git status
+git pull origin full_backup
+git log
 
 when committing add .txt to this file
 
@@ -377,7 +388,10 @@ def Authentication():
             and                 'APP_DIRS': True,
 
 
-
+D:\documents\GitHub\redwind01_com_cookie_cutter_starter\.gitignore
+#.env
+#.envs/*
+.envs/.production
 
 
 
