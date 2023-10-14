@@ -7,7 +7,8 @@ from django.views import defaults as default_views
 from django.views.generic import TemplateView
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.authtoken.views import obtain_auth_token
-from library.views import BooksViewSet, BooksTemplateView
+from library.views import BooksViewSet
+
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
@@ -18,12 +19,11 @@ urlpatterns = [
     path("users/", include("redwind01_com_cookie_cutter_starter.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
-    path("books/", BooksTemplateView.as_view()),
-
-    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
     # Static file serving when using Gunicorn + Uvicorn for local web socket development
     urlpatterns += staticfiles_urlpatterns()
+    # path("redwind01.com/books/", BooksTemplateView.as_view()),
 
 # API URLS
 urlpatterns += [

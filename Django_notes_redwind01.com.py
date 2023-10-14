@@ -211,7 +211,7 @@ def adding_models():          # add admin.py
         path("api/library/BooksViewSet",
             BooksViewSet.as_view({"get": "list"}),
             name="User_Data_View_Set", ),
-    8 admin.py
+    8 library.admin.py
         from .models import Books
         @admin.register(Books)
         class BooksAdmin(admin.ModelAdmin):
@@ -237,6 +237,10 @@ def adding_models():          # add admin.py
                 # Add in a QuerySet of all the books
                 context["skill_data_list"] = Skills.objects.all()
                 return context
+    # for .html.css.java
+    from library.views import BooksTemplateView
+        path("books/", BooksTemplateView.as_view()),
+
     10 templates.cyberbase.html
         <!-- fields -->
         {% for skill in skill_data_list %}
