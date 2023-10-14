@@ -23,6 +23,7 @@ urlpatterns = [
 if settings.DEBUG:
     # Static file serving when using Gunicorn + Uvicorn for local web socket development
     urlpatterns += staticfiles_urlpatterns()
+    # path("redwind01.com/books/", BooksTemplateView.as_view()),
 
 # API URLS
 urlpatterns += [

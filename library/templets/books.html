@@ -1,0 +1,10 @@
+<!-- fields -->
+{% for books in books_list %}
+<ul class="nav flex-column">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">
+      {{ books.book_title|lower }}
+    </a>
+  </li>
+  {% endfor %}
+</ul>

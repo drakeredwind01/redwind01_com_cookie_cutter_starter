@@ -2,6 +2,10 @@
 # docker compose -f local.yml run --rm django python manage.py createsuperuser
 import random
 
+
+
+
+
 docker compose -f local.yml run --rm django python manage.py makemigrations
 docker compose -f local.yml run --rm django python manage.py migrate
 docker compose -f local.yml run --rm django python manage.py createsuperuser
@@ -77,6 +81,9 @@ def changed():
 
 
 
+
+
+
 def adding_models():          # add admin.py
 
     adding models
@@ -128,25 +135,36 @@ def adding_models():          # add admin.py
         from .models import Skills
         from .serializers import SkillsSerializer  # Import your serializer
 
+        # easiest for api
         class SkillsViewSet(viewsets.ModelViewSet):
             queryset = Skills.objects.all()
             serializer_class = SkillsSerializer
+            # extra
             def get_context_data(self, **kwargs):
                 # Call the base implementation first to get a context
                 context = super().get_context_data(**kwargs)
                 # Add in a QuerySet of all the books
                 context["skill_data_list"] = Skills.objects.all()
                 return context
-    templates.cyberbase.html
-        <!-- fields -->
-        {% for skill in skill_data_list %}
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link active" href="#">
-                    {{ skill.skillname|lower }}
-                </a>
-            </li>
-            {% endfor %}
+    # for .html.css.java
+        views.py
+            from django.views.generic import TemplateView
+            class CyberbaseSkillsTemplateView(TemplateView):
+                template_name = "challenges.html"
+
+        config.urls.py
+            path("redwind01.com/ActiveChallengeDataViewSet/", ActiveChallengeDataTemplateView.as_view()),
+
+        templates.books.html
+            <!-- fields -->
+            {% for skill in skill_data_list %}
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">
+                        {{ skill.skillname|lower }}
+                    </a>
+                </li>
+                {% endfor %}
 
 
 
@@ -156,84 +174,6 @@ def adding_models():          # add admin.py
 
 
 
-
-
-(redwind01env) D:\documents\GitHub\redwind01_com_cookie_cutter_starter>cookiecutter gh:cookiecutter/cookiecutter-django
-You've downloaded C:\Users\drakeredwind01\.cookiecutters\cookiecutter-django before. Is it okay to delete and
-re-download it? [y/n] (y): y
-  [1/27] project_name (My Awesome Project): redwind01_com_cookie_cutter_starter
-  [2/27] project_slug (redwind01_com_cookie_cutter_starter): redwind01_com_cookie_cutter_starter
-  [3/27] description (Behold My Awesome Project!): redwind01_com_cookie_cutter_starter
-  [4/27] author_name (Daniel Roy Greenfeld): drake redwind
-  [5/27] domain_name (example.com): redwind01.com
-  [6/27] email (drake-redwind@redwind01.com): drakeredwind01@gmail.com
-  [7/27] version (0.1.0):
-  [8/27] Select open_source_license
-    1 - MIT
-    2 - BSD
-    3 - GPLv3
-    4 - Apache Software License 2.0
-    5 - Not open source
-    Choose from [1/2/3/4/5] (1): 1
-  [9/27] Select username_type
-    1 - username
-    2 - email
-    Choose from [1/2] (1): 1
-  [10/27] timezone (UTC): UTC
-  [11/27] windows (n): y
-  [12/27] Select editor
-    1 - None
-    2 - PyCharm
-    3 - VS Code
-    Choose from [1/2/3] (1): 2
-  [13/27] use_docker (n): y
-  [14/27] Select postgresql_version
-    1 - 15
-    2 - 14
-    3 - 13
-    4 - 12
-    5 - 11
-    6 - 10
-    Choose from [1/2/3/4/5/6] (1): 1
-  [15/27] Select cloud_provider
-    1 - AWS
-    2 - GCP
-    3 - Azure
-    4 - None
-    Choose from [1/2/3/4] (1): 4
-  [16/27] Select mail_service
-    1 - Mailgun
-    2 - Amazon SES
-    3 - Mailjet
-    4 - Mandrill
-    5 - Postmark
-    6 - Sendgrid
-    7 - SendinBlue
-    8 - SparkPost
-    9 - Other SMTP
-    Choose from [1/2/3/4/5/6/7/8/9] (1): 1
-  [17/27] use_async (n): y
-  [18/27] use_drf (n): y
-  [19/27] Select frontend_pipeline
-    1 - None
-    2 - Django Compressor
-    3 - Gulp
-    4 - Webpack
-    Choose from [1/2/3/4] (1): 1
-  [20/27] use_celery (n): y
-  [21/27] use_mailpit (n): n
-  [22/27] use_sentry (n): y
-  [23/27] use_whitenoise (n): y
-  [24/27] use_heroku (n): n
-  [25/27] Select ci_tool
-    1 - None
-    2 - Travis
-    3 - Gitlab
-    4 - Github
-    5 - Drone
-    Choose from [1/2/3/4/5] (1): 4
-  [26/27] keep_local_envs_in_vcs (y): n
-  [27/27] debug (n): y
 
 
 
@@ -313,6 +253,45 @@ def adding_models():          # add admin.py
 
 
 
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+D:
+mkdir D:\documents\GitHub\redwind01_com_cookie_cutter_starter2
+cd D:\documents\GitHub\redwind01_com_cookie_cutter_starter2
+activate redwind01env
+cookiecutter gh:cookiecutter/cookiecutter-django
+y
+redwind01_com_cookie_cutter_starter # project_name
+redwind01_com_cookie_cutter_starter # project_slug
+redwind01_com_cookie_cutter_starter # description
+drake redwind # author_name
+redwind01.com # domain_name
+drakeredwind01@gmail.com # email
+0.1.0 # version
+5   # 1 open_source_license MIT
+1   # username_type
+UTC # timezone
+y   # windows
+2   # Select editor
+y   # use_docker
+1   # postgresql_version 15
+4   # cloud_provider 4 NONE
+9   # mail_service Other SMTP
+y   # use_async
+y   # use_drf
+1   # frontend_pipeline None
+y   # use_celery
+n   # use_mailpit
+y   # use_sentry
+y   # use_whitenoise
+n   # use_heroku
+4   # ci_tool NONE
+n   # keep_local_envs_in_vcs
+y   # debug
 
 
 
@@ -321,6 +300,92 @@ def adding_models():          # add admin.py
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  [1/27] project_name (My Awesome Project): redwind01_com_cookie_cutter_starter
+  [2/27] project_slug (redwind01_com_cookie_cutter_starter): redwind01_com_cookie_cutter_starter
+  [3/27] description (Behold My Awesome Project!): redwind01_com_cookie_cutter_starter
+  [4/27] author_name (Daniel Roy Greenfeld): drake redwind
+  [5/27] domain_name (example.com): redwind01.com
+  [6/27] email (drake-redwind@redwind01.com): drakeredwind01@gmail.com
+  [7/27] version (0.1.0):
+  [8/27] Select open_source_license
+    1 - MIT
+    2 - BSD
+    3 - GPLv3
+    4 - Apache Software License 2.0
+    5 - Not open source
+    Choose from [1/2/3/4/5] (1): 1
+  [9/27] Select username_type
+    1 - username
+    2 - email
+    Choose from [1/2] (1): 1
+  [10/27] timezone (UTC): UTC
+  [11/27] windows (n): y
+  [12/27] Select editor
+    1 - None
+    2 - PyCharm
+    3 - VS Code
+    Choose from [1/2/3] (1): 2
+  [13/27] use_docker (n): y
+  [14/27] Select postgresql_version
+    1 - 15
+    2 - 14
+    3 - 13
+    4 - 12
+    5 - 11
+    6 - 10
+    Choose from [1/2/3/4/5/6] (1): 1
+  [15/27] Select cloud_provider
+    1 - AWS
+    2 - GCP
+    3 - Azure
+    4 - None
+    Choose from [1/2/3/4] (1): 4
+  [16/27] Select mail_service
+    1 - Mailgun
+    2 - Amazon SES
+    3 - Mailjet
+    4 - Mandrill
+    5 - Postmark
+    6 - Sendgrid
+    7 - SendinBlue
+    8 - SparkPost
+    9 - Other SMTP
+    Choose from [1/2/3/4/5/6/7/8/9] (1): 1
+  [17/27] use_async (n): y
+  [18/27] use_drf (n): y
+  [19/27] Select frontend_pipeline
+    1 - None
+    2 - Django Compressor
+    3 - Gulp
+    4 - Webpack
+    Choose from [1/2/3/4] (1): 1
+  [20/27] use_celery (n): y
+  [21/27] use_mailpit (n): n
+  [22/27] use_sentry (n): y
+  [23/27] use_whitenoise (n): y
+  [24/27] use_heroku (n): n
+  [25/27] Select ci_tool
+    1 - None
+    2 - Travis
+    3 - Gitlab
+    4 - Github
+    5 - Drone
+    Choose from [1/2/3/4/5] (1): 4
+  [26/27] keep_local_envs_in_vcs (y): n
+  [27/27] debug (n): y
 
 
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -471,5 +536,16 @@ def to_send_to_devs():
         black and flake don't like each other
 
 
-todo
-    add read only settings
+
+TODO:
+[X] get api running
+[ ] .html for books         end first tut
+[ ] plugin ALL.AUTH
+[ ] save database export
+[ ] database import
+[ ] payment wallet, escrow
+[ ] add model constraints
+[ ] add read only settings
+
+
+go through git tut for command line
