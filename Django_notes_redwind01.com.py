@@ -24,9 +24,20 @@ docker-compose -f local.yml up
 docker-compose -f production.yml build
 docker-compose -f production.yml up
 
-git status
-git pull origin full_backup
-git log
+
+GIT
+    git log                     # 'what happend git?'
+    git status                  # 'what's happening, git?'
+    git pull origin full_backup # pull from git branch 'full_backup' (if it existes)
+    git add --all               # add everything to the commit
+    git commit -m 'Initial commit all files to repository'   # commit with custom message
+    git push                    # push your files to github
+    git branch -a               # list all branches
+    git checkout master         # switch to existing 'master' branch
+    git checkout -b master      # create and switch to 'master' branch
+
+
+
 
 when committing add .txt to this file
 
@@ -42,8 +53,8 @@ config/settings/base.py
 
 
 
-
-ctrl+f12 navigate file structure, then go to it using enter or f4
+def navigate_file_structure():
+    pass # ctrl+f12 (then go to it using enter or f4)
 def quick_switch_scheme():
     pass # ctrl+back_quote(`):
 def View_recent_files():
@@ -60,8 +71,6 @@ cyberlancer models notes
 jobs
 application
 companies
-
-
 """
 
 
@@ -78,9 +87,12 @@ def changed():
 
 
 
+git
+    git reset --hard 1520a2c2b1ee27e21d630a8cfad623a6e80ea3bb
 
 
-
+talimeir reproduction are on the ends of dna (kind of like aglets)
+we need a way to repair the aglet
 
 
 
@@ -169,6 +181,13 @@ def adding_models():          # add admin.py
 
 
 
+        models.py
+            from django.conf import settings
+            from django.db.models import ForeignKey
+            from django.db.models import DO_NOTHING
+            class Books(models.Model):
+                checked_out_to2 = ForeignKey(settings.AUTH_USER_MODEL, default=None, on_delete=DO_NOTHING)
+
 
 
 
@@ -237,6 +256,10 @@ def adding_models():          # add admin.py
                 # Add in a QuerySet of all the books
                 context["skill_data_list"] = Skills.objects.all()
                 return context
+    # for .html.css.java
+    from library.views import BooksTemplateView
+        path("books/", BooksTemplateView.as_view()),
+
     10 templates.cyberbase.html
         <!-- fields -->
         {% for skill in skill_data_list %}
@@ -260,8 +283,8 @@ def adding_models():          # add admin.py
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 D:
-mkdir D:\documents\GitHub\redwind01_com_cookie_cutter_starter2
-cd D:\documents\GitHub\redwind01_com_cookie_cutter_starter2
+mkdir D:\documents\GitHub\redwind01_com_cookie_cutter_starter
+cd D:\documents\GitHub\redwind01_com_cookie_cutter_starter
 activate redwind01env
 cookiecutter gh:cookiecutter/cookiecutter-django
 y
@@ -535,7 +558,7 @@ def to_send_to_devs():
         include BAD.py
         black and flake don't like each other
 
-
+TODO:
 
 TODO:
 [X] get api running

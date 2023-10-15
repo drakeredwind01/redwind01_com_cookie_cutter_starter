@@ -8,12 +8,11 @@ can you see me?
 
   <li class="nav-item">
     <a class="nav-link active" href="#">
-      <h2>{{ books.book_title|lower }}<br></h2>
-      {{books.book_title}}<br>
-      {{books.author}}<br>
-      {{books.isbn}}<br>
-      {{books.ratings}}<br>
-      {{books.checked_out_to}}<br>
+      <h2>{{ books.book_title|lower }}</h2>
+      author {{books.author}}<br>
+      isbn {{books.isbn}}<br>
+      rating {{books.ratings}}<br>
+      checked_out_to {{books.checked_out_to2}}<br>
     </a>
   </li>
   {% endfor %}
