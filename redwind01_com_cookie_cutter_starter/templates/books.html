@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- fields -->
+can you see me?
+<ul class="nav flex-column">
+  {% for books in books_list %}
+
+  <li class="nav-item">
+    <a class="nav-link active" href="#">
+      <h2>{{ books.book_title|lower }}<br></h2>
+      {{books.book_title}}<br>
+      {{books.author}}<br>
+      {{books.isbn}}<br>
+      {{books.ratings}}<br>
+      {{books.checked_out_to}}<br>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock content %}

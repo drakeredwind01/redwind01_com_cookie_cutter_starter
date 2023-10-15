@@ -237,10 +237,6 @@ def adding_models():          # add admin.py
                 # Add in a QuerySet of all the books
                 context["skill_data_list"] = Skills.objects.all()
                 return context
-    # for .html.css.java
-    from library.views import BooksTemplateView
-        path("books/", BooksTemplateView.as_view()),
-
     10 templates.cyberbase.html
         <!-- fields -->
         {% for skill in skill_data_list %}

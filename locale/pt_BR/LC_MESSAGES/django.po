@@ -1,6 +1,6 @@
 # Translations for the redwind01_com_cookie_cutter_starter project
-# Copyright (C) 2023 drake redwind
-# drake redwind <drakeredwind01@gmail.com>, 2023.
+# Copyright (C) 2023 drakeredwind01
+# drakeredwind01 <drakeredwind01@gmail.com>, 2023.
 #
 #, fuzzy
 msgid ""

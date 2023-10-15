@@ -28,8 +28,8 @@ django.setup()
 # -- Project information -----------------------------------------------------
 
 project = "redwind01_com_cookie_cutter_starter"
-copyright = """2023, drake redwind"""
-author = "drake redwind"
+copyright = """2023, drakeredwind01"""
+author = "drakeredwind01"
 
 
 # -- General configuration ---------------------------------------------------
