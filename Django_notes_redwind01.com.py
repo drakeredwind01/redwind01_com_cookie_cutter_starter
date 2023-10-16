@@ -2,10 +2,6 @@
 # docker compose -f local.yml run --rm django python manage.py createsuperuser
 import random
 
-
-
-
-
 docker compose -f local.yml run --rm django python manage.py makemigrations
 docker compose -f local.yml run --rm django python manage.py migrate
 docker compose -f local.yml run --rm django python manage.py createsuperuser
@@ -36,6 +32,9 @@ GIT
     git checkout master         # switch to existing 'master' branch
     git checkout -b master      # create and switch to 'master' branch
 
+    django-admin startproject {project_name}
+    python .\manage.py startapp {app_name}
+    python .\manage.py runserver
 
 
 
@@ -49,6 +48,7 @@ when committing add .txt to this file
 
 app/settings.py
 config/settings/base.py
+
 
 
 
@@ -71,6 +71,8 @@ cyberlancer models notes
 jobs
 application
 companies
+
+
 """
 
 
@@ -183,8 +185,7 @@ def adding_models():          # add admin.py
 
         models.py
             from django.conf import settings
-            from django.db.models import ForeignKey
-            from django.db.models import DO_NOTHING
+            from django.db.models import DO_NOTHING, ForeignKey
             class Books(models.Model):
                 checked_out_to2 = ForeignKey(settings.AUTH_USER_MODEL, default=None, on_delete=DO_NOTHING)
 
